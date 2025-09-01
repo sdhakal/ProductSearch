@@ -8,6 +8,7 @@ using System.Xml;
 using ProductSearch.Models;
 namespace ProductSearch.Controllers
 {
+    [AllowAnonymous]
     public class ProductController : Controller
     {
         XmlDocument doc = new XmlDocument();

@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace ProductSearch.Controllers
 {
+    [AllowAnonymous]
     public class HomeController : Controller
     {
         private readonly ApplicationDbContext _applicationDbContext;
@@ -18,8 +19,8 @@ namespace ProductSearch.Controllers
         public ActionResult Index()
         {
 
-            if (!users.Any(x => x.Name == User.Identity.Name.Substring(User.Identity.Name.IndexOf(@"\") + 1)))
-                return View("~/Views/Home/Unauthorized.cshtml");
+            //if (!users.Any(x => x.Name == User.Identity.Name.Substring(User.Identity.Name.IndexOf(@"\") + 1)))
+            //    return View("~/Views/Home/Unauthorized.cshtml");
             return View(_applicationDbContext.Products.ToList());
         }
 
